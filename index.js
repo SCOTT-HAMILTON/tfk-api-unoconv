@@ -2,12 +2,11 @@
 
 const routes = require('./routes')
 
-exports.register = (server, options, next) => {
-  server.route(routes)
-
-  next()
-}
-
-exports.register.attributes = {
-  pkg: require('./package.json')
-}
+exports.plugin = {
+    pkg: require('./package.json'),
+	name: 'unoconvWebservice',
+	version: '1.0.0',
+    register: async function (server, options) {
+        server.route(routes);
+    }
+};

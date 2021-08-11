@@ -35,8 +35,8 @@
   "dependencies": {
     "@hapi/hapi": "^20.1.5",
     "@hapi/inert": "^6.0.3",
+    "awesome-unoconv": "^1.0.1",
     "path-parse": ">=1.0.7",
-    "unoconv2": "1.0.0",
     "uuid": "8.3.2"
   },
   "devDependencies": {

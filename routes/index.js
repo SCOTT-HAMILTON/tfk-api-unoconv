@@ -7,47 +7,40 @@ module.exports = [
   {
     method: 'POST',
     path: '/unoconv/{format}',
-    config: {
+    options: {
       payload: {
         output: 'stream',
         parse: true,
         allow: 'multipart/form-data',
         maxBytes: parseInt(config.PAYLOAD_MAX_SIZE, 10),
-        timeout: parseInt(config.PAYLOAD_TIMEOUT, 10)
+        timeout: parseInt(config.PAYLOAD_TIMEOUT, 10),
+        multipart: true
       },
       timeout: {
         server: parseInt(config.TIMEOUT_SERVER, 10),
         socket: parseInt(config.TIMEOUT_SOCKET, 10)
       },
-      handler: handlers.handleUpload
-    }
+    },
+    handler: handlers.handleUpload
   },
   {
     method: 'GET',
     path: '/unoconv/formats',
-    config: {
-      handler: handlers.showFormats
-    }
+    handler: handlers.showFormats
   },
   {
     method: 'GET',
     path: '/unoconv/formats/{type}',
-    config: {
-      handler: handlers.showFormat
-    }
+    handler: handlers.showFormat
   },
   {
     method: 'GET',
     path: '/unoconv/versions',
-    config: {
-      handler: handlers.showVersions
-    }
+    handler: handlers.showVersions
   },
   {
     method: 'GET',
     path: '/healthz',
-    config: {
-      handler: handlers.healthcheck
-    }
+    handler: handlers.healthcheck
   }
 ]
