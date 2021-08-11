@@ -1,6 +1,6 @@
 'use strict'
 
 const tap = require('tap')
-const inert = require('inert')
+const inert = require('@hapi/inert')
 
 tap.ok(inert, 'Inert loads OK')
