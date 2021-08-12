@@ -4,9 +4,14 @@ const Hapi = require('@hapi/hapi')
 const Inert = require('@hapi/inert')
 const config = require('./config')
 const unoconvService = require('./index')
+
+console.log("Started tfk-api-unoconv with configuration: ")
+for (var key in config) {
+	console.log(`${key} -> ${config[key]}`)
+}
 const server = new Hapi.Server({
 	port: parseInt(config.SERVER_PORT, 10),
-	host: 'localhost',
+	host: config.SERVER_HOST,
 	routes: {
 		cors: {
 			credentials: true

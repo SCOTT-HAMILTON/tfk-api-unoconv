@@ -59,6 +59,8 @@ You can change the webservice port and filesize-limit by changing environment va
 
 SERVER_PORT default is 3000
 
+SERVER_HOST default is 0.0.0.0
+
 PAYLOAD_MAX_SIZE default is 1048576 (1 MB)
 
 PAYLOAD_TIMEOUT default is 2 minutes (120 000 milliseconds)
