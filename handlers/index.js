@@ -13,7 +13,7 @@ function convertFile(inputFile, format) {
       .convert(inputFile, { buffer: true, format: 'pdf' })  // or format: 'html'
       .then(buffer => {
         console.log('finished converting')
-        resolve(buffer.toString())
+        resolve(buffer.toString('binary'))
       })
       .catch(err => {
         console.error(`[error] failed to convert file ${inputFile} to format ${format}: ${err}`)
@@ -59,7 +59,7 @@ module.exports.handleUpload = function (request, h) {
             reject(err)
           } else {
             convertFile(fileNameTempOriginal, convertToFormat)
-              .then(result => resolve(h.response(result)))
+              .then(result => resolve(h.response(result).encoding("binary")))
               .catch(error => {
                 reject(error)
               })
