@@ -1,7 +1,7 @@
 'use strict'
 
 const fs = require('fs')
-const { v4: uuid } = require('uuid')
+const uuid = require('uuid-random');
 const unoconv = require('awesome-unoconv');
 const formats = require('../lib/data/formats.json')
 const pkg = require('../package.json')
